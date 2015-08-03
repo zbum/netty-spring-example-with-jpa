@@ -6,6 +6,7 @@ This TCP Communication Service is a simple example for developer who want to mak
 
 ## Feature
 * Telnet Client can send message to other telnet client.
+* Telnet Client can retrieve User Information from RDBMS(H2 DB).
 
 ## How to use
 * Run com.zbum.example.socket.server.netty.Application with IDE or Maven
