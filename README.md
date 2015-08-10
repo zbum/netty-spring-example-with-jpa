@@ -64,7 +64,7 @@ INSERT INTO PUBLIC.USER (ID, PHONE_NUMBER, USERNAME, USE_YN) VALUES (3, '010-111
     I Love You!!!
 ```
 
-* Then, you can retrieve Data by Command
+* Then, you can retrieve user data by command below.
 ```bash
     $ telnet localhost 8090
     Trying ::1...
