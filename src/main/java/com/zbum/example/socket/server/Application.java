@@ -16,6 +16,7 @@
 package com.zbum.example.socket.server;
 
 import com.zbum.example.socket.server.netty.ChannelRepository;
+import com.zbum.example.socket.server.netty.TCPServer;
 import com.zbum.example.socket.server.netty.handler.SomethingChannelInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelOption;
@@ -28,10 +29,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.*;
 
 import java.net.InetSocketAddress;
 import java.util.HashMap;
@@ -44,6 +43,7 @@ import java.util.Set;
  * @author Jibeom Jung
  */
 @SpringBootApplication
+@ComponentScan(basePackages = "com.zbum.example")
 @PropertySource(value= "classpath:/properties/local/nettyserver.properties")
 public class Application {
 
@@ -59,8 +59,9 @@ public class Application {
     static class Local
     { }
 
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+    public static void main(String[] args) throws Exception{
+        ConfigurableApplicationContext ctx = SpringApplication.run(Application.class, args);
+        ctx.getBean(TCPServer.class).start();
     }
 
     @Value("${tcp.port}")
