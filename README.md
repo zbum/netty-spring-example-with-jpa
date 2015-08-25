@@ -1,4 +1,4 @@
-# netty-spring-example with JPA
+# Netty-spring-example with JPA
 TCP communication server with Netty, spring-boot, spring-data-jpa
 
 This TCP Communication Service is a simple example for developer who want to make tcp service with Spring-Boot, Spring-Data-JPA and Netty.
